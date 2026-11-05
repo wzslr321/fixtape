@@ -8,7 +8,7 @@ const ALLOWED = new Set([
   'index.html',
   'film.mp4', 'film.jpg', 'film.json',
   ...['before', 'after'].flatMap(side => ['reel.mp4', 'raw.webm', 'poster.jpg', 'receipt.json'].map(file => `${side}/${file}`)),
-  ...['before.mp4', 'after.mp4', 'before.jpg', 'after.jpg', 'film.mp4', 'film.jpg', 'film.json', 'preview.gif', 'comparison.jpg', 'recording-receipts.json'].map(file => `media/${file}`),
+  ...['before.mp4', 'after.mp4', 'before.jpg', 'after.jpg', 'film.mp4', 'film.jpg', 'film.json', 'preview.gif', 'recording-receipts.json'].map(file => `media/${file}`),
 ]);
 
 const CONTENT_TYPES = {

@@ -3,15 +3,15 @@
     "schemaVersion": 1,
     "status": "passed",
     "side": "before",
-    "title": "Hide completed tasks",
-    "goal": "Hide the completed task.",
+    "title": "Floating-point total at checkout",
+    "goal": "Charge the customer the right amount.",
     "presentation": "clean",
-    "url": "http://127.0.0.1:60370/before/",
+    "url": "http://127.0.0.1:57714/before/",
     "viewport": {
       "width": 1280,
       "height": 800
     },
-    "startedAt": "2026-11-05T10:49:31.022Z",
+    "startedAt": "2026-11-05T12:03:51.216Z",
     "pacing": {
       "scale": 1,
       "milliseconds": {
@@ -25,8 +25,8 @@
     "events": [
       {
         "kind": "intro",
-        "startMs": 78,
-        "caption": "Hide the completed task.",
+        "startMs": 47,
+        "caption": "Charge the customer the right amount.",
         "panel": {
           "x": 270,
           "y": 326.5,
@@ -35,19 +35,19 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 3089
+        "endMs": 3054
       },
       {
         "kind": "step",
-        "caption": "Three tasks. One already done.",
-        "target": ".task-card",
+        "caption": "Two items. Ten cents and twenty cents.",
+        "target": ".order-card",
         "bounds": {
           "x": 260,
-          "y": 192,
+          "y": 168,
           "width": 760,
-          "height": 413.796875
+          "height": 294.984375
         },
-        "startMs": 3092,
+        "startMs": 3058,
         "panel": {
           "x": 24,
           "y": 665,
@@ -56,104 +56,97 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 5596
+        "endMs": 5562
       },
       {
         "kind": "step",
-        "caption": "Click “Hide completed”.",
-        "target": ".filter",
+        "caption": "Click “Place order”.",
+        "target": "#place-order",
         "bounds": {
-          "x": 873.140625,
-          "y": 304.296875,
-          "width": 121.859375,
-          "height": 32
+          "x": 887.71875,
+          "y": 411.984375,
+          "width": 107.28125,
+          "height": 36
         },
-        "startMs": 5598,
+        "startMs": 5565,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "actionStartMs": 8103,
+        "actionStartMs": 8070,
         "input": [
           {
             "type": "pointerdown",
             "withinTarget": true,
-            "atMs": 8957
-          },
-          {
-            "type": "input",
-            "withinTarget": true,
-            "atMs": 8965
+            "atMs": 8930
           }
         ],
-        "actionEndMs": 9904,
-        "endMs": 9904
+        "actionEndMs": 9836,
+        "endMs": 9836
       },
       {
         "kind": "observation",
-        "target": "#tasks li",
-        "anchor": ".task-card",
-        "read": "count",
-        "expected": 3,
-        "observed": 3,
-        "caption": "Checked. Still three tasks.",
+        "target": ".confirmation-text",
+        "read": "text",
+        "expected": "Order placed. Charged $0.30000000000000004.",
+        "observed": "Order placed. Charged $0.30000000000000004.",
+        "caption": "Charged $0.30000000000000004.",
         "outcome": "problem",
         "pass": true,
         "bounds": {
-          "x": 260,
-          "y": 192,
-          "width": 760,
-          "height": 413.796875
+          "x": 317,
+          "y": 481.984375,
+          "width": 352.140625,
+          "height": 18
         },
-        "startMs": 9908,
+        "startMs": 9846,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "observedAfterHold": 3,
-        "endMs": 14121
+        "observedAfterHold": "Order placed. Charged $0.30000000000000004.",
+        "endMs": 14059
       }
     ],
     "observations": [
       {
         "kind": "observation",
-        "target": "#tasks li",
-        "anchor": ".task-card",
-        "read": "count",
-        "expected": 3,
-        "observed": 3,
-        "caption": "Checked. Still three tasks.",
+        "target": ".confirmation-text",
+        "read": "text",
+        "expected": "Order placed. Charged $0.30000000000000004.",
+        "observed": "Order placed. Charged $0.30000000000000004.",
+        "caption": "Charged $0.30000000000000004.",
         "outcome": "problem",
         "pass": true,
         "bounds": {
-          "x": 260,
-          "y": 192,
-          "width": 760,
-          "height": 413.796875
+          "x": 317,
+          "y": 481.984375,
+          "width": 352.140625,
+          "height": 18
         },
-        "startMs": 9908,
+        "startMs": 9846,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "observedAfterHold": 3,
-        "endMs": 14121
+        "observedAfterHold": "Order placed. Charged $0.30000000000000004.",
+        "endMs": 14059
       }
     ],
-    "finishedAt": "2026-11-05T10:49:46.388Z",
-    "durationMs": 15226,
+    "finishedAt": "2026-11-05T12:04:05.986Z",
+    "durationMs": 14695,
     "actionCount": 1,
     "videoPath": "raw.webm",
     "source": {
@@ -161,29 +154,33 @@
       "files": [
         {
           "path": "before.js",
-          "sha256": "f6a50d9fd3c79623768edc15dfea3d71e34b965dcb4a1b745a8b6b5ca182c9bb"
+          "sha256": "7d3a383c806aefa4ee868a9579f441b834753a8f79114885080760cdc53995ed"
         },
         {
           "path": "index.html",
-          "sha256": "411b37bc0c8f5b9d6e51887f46393cb8271df999c9919e501001df0082d7ff7e"
+          "sha256": "e07811347858103821574c60f0acef02559c17993b291a194c66e15000a427b3"
+        },
+        {
+          "path": "order.js",
+          "sha256": "7bb1410a2b85170aa24310be02131783b1cdb1d4b70b0a833e3d44918d36ab4f"
         },
         {
           "path": "styles.css",
-          "sha256": "1f2955fcd1df6ffe4950ee5bb090178fb4807f89fcb35121a2a9b6ae79809900"
-        },
-        {
-          "path": "tasks.js",
-          "sha256": "2f35a65bdde47988cef7d1ff7548f9bd2269bfed5beb9efbaf683c5d8a37925b"
+          "sha256": "b839d445d3b59b2397e01c9820a6644f10d6f4bd4ac3eec5c3a84d7efeb6da1f"
         }
       ],
-      "digest": "6a51a414d68993fc108b4cfd00485a30801d0a31c12e84d96ef5ccdb3da5cf42",
+      "digest": "6f1e8c376329669315bdcd565ac2e585d2d331c98a7fe18c0d929bfb2637f791",
       "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
-      "git": null,
+      "git": {
+        "commit": "f4df2d41f26b74ef5083069812c491817736543c",
+        "dirty": false,
+        "trackedDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
       "stableDuringRecording": true
     },
     "scenario": {
       "name": "scenario.mjs",
-      "sha256": "48a0af5bd509cb17ad28c4612d1efb0a88dcb30aa46e4464e1a163c322feb110"
+      "sha256": "f6d6a9042d212aee24c72e0034f9cdd59f004a469a423b6943a074cced5b712e"
     },
     "export": {
       "file": "reel.mp4",
@@ -192,9 +189,9 @@
       "width": 1280,
       "height": 800,
       "pixelFormat": "yuv420p",
-      "duration": 14.866667,
-      "bytes": 59189,
-      "sha256": "9e6b2838f60740c9d9f231f42366b7e19b60ee7b5d7ca1088bcfc6272136dfbe"
+      "duration": 14.8,
+      "bytes": 48388,
+      "sha256": "c81eddc4e1402fe921ca3746a053f685c1522408ef4ff4112080a864adbafed5"
     },
     "exportStatus": "complete"
   },
@@ -202,15 +199,15 @@
     "schemaVersion": 1,
     "status": "passed",
     "side": "after",
-    "title": "Hide completed tasks",
-    "goal": "Hide the completed task.",
+    "title": "Floating-point total at checkout",
+    "goal": "Charge the customer the right amount.",
     "presentation": "clean",
-    "url": "http://127.0.0.1:60370/after/",
+    "url": "http://127.0.0.1:57714/after/",
     "viewport": {
       "width": 1280,
       "height": 800
     },
-    "startedAt": "2026-11-05T10:49:47.168Z",
+    "startedAt": "2026-11-05T12:04:06.492Z",
     "pacing": {
       "scale": 1,
       "milliseconds": {
@@ -224,8 +221,8 @@
     "events": [
       {
         "kind": "intro",
-        "startMs": 98,
-        "caption": "Hide the completed task.",
+        "startMs": 45,
+        "caption": "Charge the customer the right amount.",
         "panel": {
           "x": 270,
           "y": 326.5,
@@ -234,19 +231,19 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 3111
+        "endMs": 3052
       },
       {
         "kind": "step",
-        "caption": "Three tasks. One already done.",
-        "target": ".task-card",
+        "caption": "Two items. Ten cents and twenty cents.",
+        "target": ".order-card",
         "bounds": {
           "x": 260,
-          "y": 192,
+          "y": 168,
           "width": 760,
-          "height": 413.796875
+          "height": 294.984375
         },
-        "startMs": 3117,
+        "startMs": 3055,
         "panel": {
           "x": 24,
           "y": 665,
@@ -255,104 +252,97 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 5623
+        "endMs": 5560
       },
       {
         "kind": "step",
-        "caption": "Click “Hide completed”.",
-        "target": ".filter",
+        "caption": "Click “Place order”.",
+        "target": "#place-order",
         "bounds": {
-          "x": 873.140625,
-          "y": 304.296875,
-          "width": 121.859375,
-          "height": 32
+          "x": 887.71875,
+          "y": 411.984375,
+          "width": 107.28125,
+          "height": 36
         },
-        "startMs": 5629,
+        "startMs": 5563,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "actionStartMs": 8134,
+        "actionStartMs": 8068,
         "input": [
           {
             "type": "pointerdown",
             "withinTarget": true,
-            "atMs": 8989
-          },
-          {
-            "type": "input",
-            "withinTarget": true,
-            "atMs": 8997
+            "atMs": 8911
           }
         ],
-        "actionEndMs": 9934,
-        "endMs": 9934
+        "actionEndMs": 9818,
+        "endMs": 9818
       },
       {
         "kind": "observation",
-        "target": "#tasks li",
-        "anchor": ".task-card",
-        "read": "count",
-        "expected": 2,
-        "observed": 2,
-        "caption": "Done task hidden. Two left.",
+        "target": ".confirmation-text",
+        "read": "text",
+        "expected": "Order placed. Charged $0.30.",
+        "observed": "Order placed. Charged $0.30.",
+        "caption": "Charged $0.30.",
         "outcome": "fixed",
         "pass": true,
         "bounds": {
-          "x": 260,
-          "y": 192,
-          "width": 760,
-          "height": 341.796875
+          "x": 317,
+          "y": 481.984375,
+          "width": 207.65625,
+          "height": 18
         },
-        "startMs": 9937,
+        "startMs": 9828,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "observedAfterHold": 2,
-        "endMs": 14143
+        "observedAfterHold": "Order placed. Charged $0.30.",
+        "endMs": 14034
       }
     ],
     "observations": [
       {
         "kind": "observation",
-        "target": "#tasks li",
-        "anchor": ".task-card",
-        "read": "count",
-        "expected": 2,
-        "observed": 2,
-        "caption": "Done task hidden. Two left.",
+        "target": ".confirmation-text",
+        "read": "text",
+        "expected": "Order placed. Charged $0.30.",
+        "observed": "Order placed. Charged $0.30.",
+        "caption": "Charged $0.30.",
         "outcome": "fixed",
         "pass": true,
         "bounds": {
-          "x": 260,
-          "y": 192,
-          "width": 760,
-          "height": 341.796875
+          "x": 317,
+          "y": 481.984375,
+          "width": 207.65625,
+          "height": 18
         },
-        "startMs": 9937,
+        "startMs": 9828,
         "panel": {
           "x": 24,
-          "y": 665,
+          "y": 24,
           "width": 740,
           "height": 111
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "observedAfterHold": 2,
-        "endMs": 14143
+        "observedAfterHold": "Order placed. Charged $0.30.",
+        "endMs": 14034
       }
     ],
-    "finishedAt": "2026-11-05T10:50:02.633Z",
-    "durationMs": 15206,
+    "finishedAt": "2026-11-05T12:04:21.193Z",
+    "durationMs": 14630,
     "actionCount": 1,
     "videoPath": "raw.webm",
     "source": {
@@ -360,29 +350,33 @@
       "files": [
         {
           "path": "after.js",
-          "sha256": "13282b218453f38fb274a1d059d3713fc49b0c3da48775681e85f64c4fcc3cc4"
+          "sha256": "d3a8196f591ffbfc29666450723b6bfbe26b4439bdff5a2373f706011cc42167"
         },
         {
           "path": "index.html",
-          "sha256": "411b37bc0c8f5b9d6e51887f46393cb8271df999c9919e501001df0082d7ff7e"
+          "sha256": "e07811347858103821574c60f0acef02559c17993b291a194c66e15000a427b3"
+        },
+        {
+          "path": "order.js",
+          "sha256": "7bb1410a2b85170aa24310be02131783b1cdb1d4b70b0a833e3d44918d36ab4f"
         },
         {
           "path": "styles.css",
-          "sha256": "1f2955fcd1df6ffe4950ee5bb090178fb4807f89fcb35121a2a9b6ae79809900"
-        },
-        {
-          "path": "tasks.js",
-          "sha256": "2f35a65bdde47988cef7d1ff7548f9bd2269bfed5beb9efbaf683c5d8a37925b"
+          "sha256": "b839d445d3b59b2397e01c9820a6644f10d6f4bd4ac3eec5c3a84d7efeb6da1f"
         }
       ],
-      "digest": "97595613b93ae733408021c79c1b1b41633fb3d4b3112f1f5e1bb7fa65daef2f",
+      "digest": "dfd1e905728059b1af1fae092e3f6dc0e4db12fdf86da76c5ce8ceed6779d557",
       "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
-      "git": null,
+      "git": {
+        "commit": "f4df2d41f26b74ef5083069812c491817736543c",
+        "dirty": false,
+        "trackedDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
       "stableDuringRecording": true
     },
     "scenario": {
       "name": "scenario.mjs",
-      "sha256": "48a0af5bd509cb17ad28c4612d1efb0a88dcb30aa46e4464e1a163c322feb110"
+      "sha256": "f6d6a9042d212aee24c72e0034f9cdd59f004a469a423b6943a074cced5b712e"
     },
     "export": {
       "file": "reel.mp4",
@@ -391,9 +385,9 @@
       "width": 1280,
       "height": 800,
       "pixelFormat": "yuv420p",
-      "duration": 14.866667,
-      "bytes": 65036,
-      "sha256": "ae5baa9940c3b7bee36e7ae4e97f9b351d74ac3678b42da1db1ae51cb9e2107f"
+      "duration": 14.766667,
+      "bytes": 46677,
+      "sha256": "f605a427d1187fff828c66b7cd9765bab96f679025d527ec3099a0bcbc47a209"
     },
     "exportStatus": "complete"
   }
