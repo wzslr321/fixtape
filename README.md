@@ -2,9 +2,7 @@
 
 Show the bug and the fix in one short film. Real clicks, checked results. Put it on the PR, in Slack, wherever.
 
-![Placing the order charges $0.30000000000000004 before the fix and $0.30 after it.](docs/media/preview.gif)
-
-[Watch the film](docs/media/film.mp4)
+https://github.com/user-attachments/assets/63221a17-5651-462c-aa8e-b02174076b00
 
 We generate more code than we can read. A PR description tells me what you meant, not what the user saw. I'd rather have one boring format for every fix than guess where to look each time.
 

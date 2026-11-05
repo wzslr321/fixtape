@@ -9,7 +9,7 @@ Checked on 2026-11-05 on macOS (Apple Silicon), Node.js 24.8.0, Playwright 1.64.
 | `demo` | 44 s; film 17.5 s, 1280 × 800, 30 fps, H.264, 4.3 MB |
 | `record --base main --serve` on a real Git checkout | Base served from a temporary worktree, head from the working tree; worktree removed afterwards; receipts carry both commits (part of the suite) |
 | `publish --pr` | Comment body and `gh pr comment --attach film.mp4` arguments checked against a stand-in `gh`; an older `gh` is refused with the manual fallback named. Not posted to a live pull request |
-| Showcase in `docs/` | Rebuilt from an inspected recording; all three MP4s load and seek in Chromium through the preview server. GIF at 800 px, 20 fps, 2.3 MB |
+| Showcase in `docs/` | Rebuilt from an inspected recording; all three MP4s load and seek in Chromium through the preview server. |
 | Frames of the film | Opening, click, and both results read at 640 px |
 
 ## Not verified
