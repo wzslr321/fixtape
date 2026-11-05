@@ -1,10 +1,11 @@
 # fixtape
 
-Show the bug and the fix in one short film. Real clicks, checked results. Put it on the PR, in Slack, wherever.
+Show the bug and the fix in one short film. Real clicks, checked results. Put it on the PR, in Slack, wherever
 
 https://github.com/user-attachments/assets/63221a17-5651-462c-aa8e-b02174076b00
 
-We generate more code than we can read. A PR description tells me what you meant, not what the user saw. I'd rather have one boring format for every fix than guess where to look each time.
+We generate more code than we can read. A PR description tells me what you meant (best case scenario lol), not what the user saw. 
+I'd rather have one boring format for every fix than guess where to look each time.
 
 ## Install
 
