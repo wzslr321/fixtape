@@ -109,3 +109,22 @@ test('actual Revideo render preserves source hashes, coherent spotlight and outp
   assert.ok(pixel(640,460)[2]>outside[2]+30,'spotlight preserves undimmed source');
   await assert.rejects(composeFilm(root),/overwrite/);
 });
+
+test('event times are shifted by the recorded video start lag, so a late first frame still plans',()=>{
+  const [before,after]=pair('count');
+  const baseline=planFilm(before,after,media);
+  const lag=1500;
+  for (const r of [before,after]) {
+    r.videoLagMs=lag;
+    for (const e of r.events) {
+      for (const key of ['startMs','endMs','actionStartMs','actionEndMs']) if (e[key]!==undefined) e[key]+=lag;
+      for (const i of e.input??[]) i.atMs+=lag;
+    }
+    for (const o of r.observations) { o.startMs+=lag; o.endMs+=lag; }
+  }
+  assert.ok(before.events.at(-1).endMs/1000>media.before.duration+.1, 'the shifted fixture overruns the media on purpose');
+  const story=planFilm(before,after,media);
+  assert.deepEqual(story,baseline);
+  before.videoLagMs=3500;
+  assert.throws(()=>planFilm(before,after,media),/video start lag/);
+});

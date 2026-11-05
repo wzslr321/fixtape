@@ -164,6 +164,8 @@ async function recordSides(scenario, options, scenarioFile, outDir, extra = {}) 
       }
       if (source.digest) receipt.source.stableDuringRecording = true;
       receipt.export = await exportVideo(videoPath, sideDir, { maxBytes: options.maxMb * 1_000_000 });
+      // The video starts at the first captured frame, which lags page creation on slow machines; the planner shifts event times by this.
+      receipt.videoLagMs = Math.max(0, (receipt.closeMs ?? receipt.durationMs) - Math.round(receipt.export.duration * 1000));
       receipt.exportStatus = 'complete';
       completed.push(side);
     } catch (error) {

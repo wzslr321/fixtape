@@ -367,6 +367,7 @@ export async function record({ scenario, side, outDir, headless = true, timingSc
     receipt.events.push({ kind: 'failure', atMs: elapsed(), message: publicError(failure) });
   } finally {
     try {
+      receipt.closeMs = elapsed();
       await context?.close();
       if (video) {
         await rename(await video.path(), videoPath);

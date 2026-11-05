@@ -15,7 +15,7 @@ Checked on 2026-11-05 on macOS (Apple Silicon), Node.js 24.8.0, Playwright 1.64.
 ## Not verified
 
 - Automatic skill selection inside Claude Code or Codex; the skill was exercised through its CLI.
-- Windows. The first Linux CI run failed in the Revideo render step: Chromium refuses its sandbox on Ubuntu 24.04 runners, so the render now launches with `--no-sandbox` on Linux only. The rerun had not finished when this was written.
+- Windows. On Linux CI two things broke and were fixed from the logs: Chromium refused its sandbox on Ubuntu 24.04 runners (the render now launches with `--no-sandbox` on Linux only), and the recorded video started later than the page on the slow runner, so event times overran the media (the receipt now stores `videoLagMs` and the planner shifts by it). The run with both fixes had not finished when this was written.
 - A live `publish --pr`: GitHub CLI 2.99 or newer was not available on the machine used.
 - `--serve` with frameworks whose dev server writes into `node_modules` while two instances run. Sharing `node_modules` worked for the bundled static app; pass `--prepare` when in doubt.
 - Phone-width playback. The film is landscape with large captions, not a vertical cut.

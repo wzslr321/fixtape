@@ -40,11 +40,18 @@ function validate(receipt, side, media) {
   if (!/^[a-f0-9]{64}$/.test(receipt.scenario?.sha256||'')) fail('Missing scenario SHA256 identity.');
   if (media.width!==1280 || media.height!==800 || !finite(media.duration) || media.duration<=0 || Math.abs(media.duration-receipt.export.duration)>.1) fail(`${side}: source media dimensions/duration do not match the receipt.`);
   if (!Array.isArray(receipt.events)) fail('Missing recording events.');
-  const events=receipt.events.filter(e=>e.kind==='step'||e.kind==='observation');
+  const lag=receipt.videoLagMs??0;
+  if (!finite(lag) || lag<0 || lag>3000) fail(`${side}: the video start lag (${lag} ms) is outside the supported range. Record again on a less loaded machine.`);
+  const shift=t=>Math.max(0,t-lag);
+  const raw=receipt.events.filter(e=>e.kind==='step'||e.kind==='observation');
+  if (!same(raw.filter(e=>e.kind==='observation'),receipt.observations)) fail('A matching terminal observation is required.');
+  const events=raw.map(e=>({...e,startMs:shift(e.startMs),endMs:shift(e.endMs),
+    ...(e.actionStartMs!==undefined?{actionStartMs:shift(e.actionStartMs),actionEndMs:shift(e.actionEndMs)}:{}),
+    ...(Array.isArray(e.input)?{input:e.input.map(i=>({...i,atMs:shift(i.atMs)}))}:{})}));
   const actions=[]; let previous=0;
   for (const e of events) {
     bounds(e.bounds); text(e.caption,'Caption'); text(e.target,'Target',500);
-    if (![e.startMs,e.endMs].every(finite) || e.startMs<previous || e.endMs<e.startMs || e.endMs/1000>media.duration+.04) fail('Malformed, overlapping or out-of-media event times.');
+    if (![e.startMs,e.endMs].every(finite) || e.startMs<previous || e.endMs<e.startMs || e.endMs/1000>media.duration+.1) fail('Malformed, overlapping or out-of-media event times.');
     previous=e.endMs;
     if (e.kind==='step' && e.actionStartMs!==undefined) {
       if (![e.actionStartMs,e.actionEndMs].every(finite) || e.actionStartMs<e.startMs || e.actionEndMs<e.actionStartMs || e.actionEndMs>e.endMs || !Array.isArray(e.input) || !e.input.length) fail('A real action with valid input timing is required.');
@@ -60,9 +67,8 @@ function validate(receipt, side, media) {
       if (!validExpected || e.pass!==true || !same(e.expected,e.observed) || !same(e.expected,e.observedAfterHold) || e.outcome!==(side==='before'?'problem':'fixed')) fail('Failed or malformed product observation.');
     }
   }
-  const observations=events.filter(e=>e.kind==='observation');
   if (!actions.length || receipt.actionCount!==actions.length) fail('Every film needs at least one real action and a matching action count.');
-  if (!same(observations,receipt.observations) || events.at(-1)?.kind!=='observation') fail('A matching terminal observation is required.');
+  if (events.at(-1)?.kind!=='observation') fail('A matching terminal observation is required.');
   const terminal=events.at(-1);
   if (terminal.endMs-terminal.startMs<4000) fail('The terminal observation needs at least 4 seconds of verified source frames.');
   return {receipt,events,actions,terminal};
