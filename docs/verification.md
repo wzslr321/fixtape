@@ -11,11 +11,12 @@ Checked on 2026-11-05 on macOS (Apple Silicon), Node.js 24.8.0, Playwright 1.64.
 | `publish --pr` | Comment body and `gh pr comment --attach film.mp4` arguments checked against a stand-in `gh`; an older `gh` is refused with the manual fallback named. Not posted to a live pull request |
 | Showcase in `docs/` | Rebuilt from an inspected recording; all three MP4s load and seek in Chromium through the preview server. |
 | Frames of the film | Opening, click, and both results read at 640 px |
+| Linux CI (GitHub Actions, Ubuntu 24.04, Node 22 and 24) | Whole suite green, about 3 min per job. Two Linux-only fixes came from the first runs: Chromium refused its sandbox on the runner, so the render launches with `--no-sandbox` on Linux only; and the recorded video started later than the page clock on the slow runner, so the receipt stores `videoLagMs` and the planner shifts event times by it |
 
 ## Not verified
 
 - Automatic skill selection inside Claude Code or Codex; the skill was exercised through its CLI.
-- Windows. On Linux CI two things broke and were fixed from the logs: Chromium refused its sandbox on Ubuntu 24.04 runners (the render now launches with `--no-sandbox` on Linux only), and the recorded video started later than the page on the slow runner, so event times overran the media (the receipt now stores `videoLagMs` and the planner shifts by it). The run with both fixes had not finished when this was written.
+- Windows.
 - A live `publish --pr`: GitHub CLI 2.99 or newer was not available on the machine used.
 - `--serve` with frameworks whose dev server writes into `node_modules` while two instances run. Sharing `node_modules` worked for the bundled static app; pass `--prepare` when in doubt.
 - Phone-width playback. The film is landscape with large captions, not a vertical cut.
