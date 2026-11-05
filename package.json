@@ -1,0 +1,14 @@
+{
+  "name": "fixtape",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["skills/fixtape"],
+  "scripts": {
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "demo": "node skills/fixtape/scripts/fixtape.mjs demo --out recordings/demo",
+    "doctor": "node skills/fixtape/scripts/fixtape.mjs doctor"
+  },
+  "engines": { "node": ">=22.20.0" },
+  "license": "MIT"
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fixtape"
+  short_description: "Show a bug and its fix in one browser film"
+  default_prompt: "Use $fixtape to record this bug and its fix in one film with real actions, checked results, and the full source clips."

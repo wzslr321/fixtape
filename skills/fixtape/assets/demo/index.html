@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tasks</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <main>
+      <p class="breadcrumb">Workspace <span aria-hidden="true">/</span> Web app</p>
+      <section class="task-card" aria-labelledby="list-title">
+        <div class="card-header">
+          <div>
+            <h1 id="list-title">Tasks</h1>
+            <p class="card-description">This week</p>
+          </div>
+          <span id="task-count" class="task-count" aria-live="polite">3 tasks</span>
+        </div>
+        <div class="filter-bar">
+          <span class="list-label">Assigned to me</span>
+          <label class="filter" for="hide-completed">
+            <input id="hide-completed" type="checkbox">
+            <span>Hide completed</span>
+          </label>
+        </div>
+        <div class="column-headings" aria-hidden="true"><span>Task</span><span>Status</span></div>
+        <ul id="tasks" aria-label="Tasks for this week" aria-live="polite"></ul>
+      </section>
+    </main>
+  </body>
+</html>

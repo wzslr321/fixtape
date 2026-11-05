@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "status": "complete",
+  "title": "Hide completed tasks",
+  "goal": "Hide the completed task.",
+  "export": {
+    "file": "film.mp4",
+    "poster": "film.jpg",
+    "codec": "h264",
+    "width": 1280,
+    "height": 800,
+    "pixelFormat": "yuv420p",
+    "duration": 17.533333,
+    "bytes": 4341964,
+    "bitrate": 1977965,
+    "frameRate": "30/1",
+    "sampleAspectRatio": "1:1",
+    "sha256": "28cd345b6003100c2be0b2b053c5fea916b3829df99a3e3a3aab7fced5773250"
+  },
+  "sources": {
+    "before": {
+      "file": "before/reel.mp4",
+      "sha256": "9e6b2838f60740c9d9f231f42366b7e19b60ee7b5d7ca1088bcfc6272136dfbe",
+      "receiptSha256": "75f21e9e5a18407ce398d8e2cdbfadd7b66b7c96707cb6f8915fea6c9e2c8290",
+      "sourceIntervalSeconds": {
+        "start": 3.092,
+        "end": 14.121
+      }
+    },
+    "after": {
+      "file": "after/reel.mp4",
+      "sha256": "ae5baa9940c3b7bee36e7ae4e97f9b351d74ac3678b42da1db1ae51cb9e2107f",
+      "receiptSha256": "7b4fe6af7009027f3ef1c34ad06a71e3fe67587ca3a02b8826cd8b757e8a6820",
+      "sourceIntervalSeconds": {
+        "start": 7.889000000000001,
+        "end": 14.143
+      }
+    }
+  },
+  "composition": {
+    "renderer": "Revideo0.11.0",
+    "playbackSpeed": 1,
+    "transitionSeconds": 0.25,
+    "captionFontPx": 36,
+    "sides": [
+      {
+        "side": "before",
+        "start": 3.092,
+        "end": 14.121,
+        "duration": 11.029,
+        "cues": [
+          {
+            "kind": "step",
+            "caption": "Three tasks. One already done.",
+            "at": 0,
+            "focus": {
+              "x": 0,
+              "y": -1.1015625,
+              "width": 784,
+              "height": 437.796875
+            },
+            "camera": {
+              "scale": 1.3019736607302188,
+              "position": [
+                0,
+                1.4342053606481318
+              ]
+            }
+          },
+          {
+            "kind": "step",
+            "caption": "Click “Hide completed”.",
+            "at": 2.506,
+            "focus": {
+              "x": 294.0703125,
+              "y": -79.703125,
+              "width": 145.859375,
+              "height": 56
+            },
+            "camera": {
+              "scale": 1.7,
+              "position": [
+                -472,
+                135.49531249999998
+              ]
+            }
+          },
+          {
+            "kind": "observation",
+            "caption": "Checked. Still three tasks.",
+            "at": 6.815999999999999,
+            "focus": {
+              "x": 0,
+              "y": -1.1015625,
+              "width": 784,
+              "height": 437.796875
+            },
+            "camera": {
+              "scale": 1.3019736607302188,
+              "position": [
+                0,
+                1.4342053606481318
+              ]
+            }
+          }
+        ],
+        "inputs": [
+          5.865
+        ],
+        "actions": [
+          {
+            "target": ".filter",
+            "caption": "Click “Hide completed”.",
+            "start": 5.010999999999999,
+            "end": 6.811999999999999,
+            "inputTimes": [
+              5.865,
+              5.872999999999999
+            ]
+          }
+        ],
+        "terminalAt": 6.815999999999999
+      },
+      {
+        "side": "after",
+        "start": 7.889000000000001,
+        "end": 14.143,
+        "duration": 6.254,
+        "cues": [
+          {
+            "kind": "step",
+            "caption": "Click “Hide completed”.",
+            "at": 0,
+            "focus": {
+              "x": 294.0703125,
+              "y": -79.703125,
+              "width": 145.859375,
+              "height": 56
+            },
+            "camera": {
+              "scale": 1.7,
+              "position": [
+                -472,
+                135.49531249999998
+              ]
+            }
+          },
+          {
+            "kind": "observation",
+            "caption": "Done task hidden. Two left.",
+            "at": 2.0479999999999983,
+            "focus": {
+              "x": 0,
+              "y": -37.1015625,
+              "width": 784,
+              "height": 365.796875
+            },
+            "camera": {
+              "scale": 1.5051020408163265,
+              "position": [
+                0,
+                55.84163743622449
+              ]
+            }
+          }
+        ],
+        "inputs": [
+          1.0999999999999996
+        ],
+        "actions": [
+          {
+            "target": ".filter",
+            "caption": "Click “Hide completed”.",
+            "start": 0.24499999999999922,
+            "end": 2.044999999999998,
+            "inputTimes": [
+              1.0999999999999996,
+              1.1079999999999988
+            ]
+          }
+        ],
+        "terminalAt": 2.0479999999999983
+      }
+    ]
+  },
+  "timingNote": "Receipt timestamps are approximate video offsets. The original source intervals play continuously at1x; camera and input pulses follow those measured offsets. Review the saved player for visual timing."
+}

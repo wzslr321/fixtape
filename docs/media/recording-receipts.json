@@ -1,0 +1,400 @@
+{
+  "before": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "side": "before",
+    "title": "Hide completed tasks",
+    "goal": "Hide the completed task.",
+    "presentation": "clean",
+    "url": "http://127.0.0.1:60370/before/",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "startedAt": "2026-11-05T10:49:31.022Z",
+    "pacing": {
+      "scale": 1,
+      "milliseconds": {
+        "intro": 3000,
+        "step": 2500,
+        "action": 900,
+        "observation": 4200
+      }
+    },
+    "timestampBasis": "Milliseconds since recorded page creation; approximate video offsets.",
+    "events": [
+      {
+        "kind": "intro",
+        "startMs": 78,
+        "caption": "Hide the completed task.",
+        "panel": {
+          "x": 270,
+          "y": 326.5,
+          "width": 740,
+          "height": 147
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "endMs": 3089
+      },
+      {
+        "kind": "step",
+        "caption": "Three tasks. One already done.",
+        "target": ".task-card",
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 413.796875
+        },
+        "startMs": 3092,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "endMs": 5596
+      },
+      {
+        "kind": "step",
+        "caption": "Click “Hide completed”.",
+        "target": ".filter",
+        "bounds": {
+          "x": 873.140625,
+          "y": 304.296875,
+          "width": 121.859375,
+          "height": 32
+        },
+        "startMs": 5598,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "actionStartMs": 8103,
+        "input": [
+          {
+            "type": "pointerdown",
+            "withinTarget": true,
+            "atMs": 8957
+          },
+          {
+            "type": "input",
+            "withinTarget": true,
+            "atMs": 8965
+          }
+        ],
+        "actionEndMs": 9904,
+        "endMs": 9904
+      },
+      {
+        "kind": "observation",
+        "target": "#tasks li",
+        "anchor": ".task-card",
+        "read": "count",
+        "expected": 3,
+        "observed": 3,
+        "caption": "Checked. Still three tasks.",
+        "outcome": "problem",
+        "pass": true,
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 413.796875
+        },
+        "startMs": 9908,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "observedAfterHold": 3,
+        "endMs": 14121
+      }
+    ],
+    "observations": [
+      {
+        "kind": "observation",
+        "target": "#tasks li",
+        "anchor": ".task-card",
+        "read": "count",
+        "expected": 3,
+        "observed": 3,
+        "caption": "Checked. Still three tasks.",
+        "outcome": "problem",
+        "pass": true,
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 413.796875
+        },
+        "startMs": 9908,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "observedAfterHold": 3,
+        "endMs": 14121
+      }
+    ],
+    "finishedAt": "2026-11-05T10:49:46.388Z",
+    "durationMs": 15226,
+    "actionCount": 1,
+    "videoPath": "raw.webm",
+    "source": {
+      "kind": "declared-local-source",
+      "files": [
+        {
+          "path": "before.js",
+          "sha256": "f6a50d9fd3c79623768edc15dfea3d71e34b965dcb4a1b745a8b6b5ca182c9bb"
+        },
+        {
+          "path": "index.html",
+          "sha256": "411b37bc0c8f5b9d6e51887f46393cb8271df999c9919e501001df0082d7ff7e"
+        },
+        {
+          "path": "styles.css",
+          "sha256": "1f2955fcd1df6ffe4950ee5bb090178fb4807f89fcb35121a2a9b6ae79809900"
+        },
+        {
+          "path": "tasks.js",
+          "sha256": "2f35a65bdde47988cef7d1ff7548f9bd2269bfed5beb9efbaf683c5d8a37925b"
+        }
+      ],
+      "digest": "6a51a414d68993fc108b4cfd00485a30801d0a31c12e84d96ef5ccdb3da5cf42",
+      "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
+      "git": null,
+      "stableDuringRecording": true
+    },
+    "scenario": {
+      "name": "scenario.mjs",
+      "sha256": "48a0af5bd509cb17ad28c4612d1efb0a88dcb30aa46e4464e1a163c322feb110"
+    },
+    "export": {
+      "file": "reel.mp4",
+      "poster": "poster.jpg",
+      "codec": "h264",
+      "width": 1280,
+      "height": 800,
+      "pixelFormat": "yuv420p",
+      "duration": 14.866667,
+      "bytes": 59189,
+      "sha256": "9e6b2838f60740c9d9f231f42366b7e19b60ee7b5d7ca1088bcfc6272136dfbe"
+    },
+    "exportStatus": "complete"
+  },
+  "after": {
+    "schemaVersion": 1,
+    "status": "passed",
+    "side": "after",
+    "title": "Hide completed tasks",
+    "goal": "Hide the completed task.",
+    "presentation": "clean",
+    "url": "http://127.0.0.1:60370/after/",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "startedAt": "2026-11-05T10:49:47.168Z",
+    "pacing": {
+      "scale": 1,
+      "milliseconds": {
+        "intro": 3000,
+        "step": 2500,
+        "action": 900,
+        "observation": 4200
+      }
+    },
+    "timestampBasis": "Milliseconds since recorded page creation; approximate video offsets.",
+    "events": [
+      {
+        "kind": "intro",
+        "startMs": 98,
+        "caption": "Hide the completed task.",
+        "panel": {
+          "x": 270,
+          "y": 326.5,
+          "width": 740,
+          "height": 147
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "endMs": 3111
+      },
+      {
+        "kind": "step",
+        "caption": "Three tasks. One already done.",
+        "target": ".task-card",
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 413.796875
+        },
+        "startMs": 3117,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "endMs": 5623
+      },
+      {
+        "kind": "step",
+        "caption": "Click “Hide completed”.",
+        "target": ".filter",
+        "bounds": {
+          "x": 873.140625,
+          "y": 304.296875,
+          "width": 121.859375,
+          "height": 32
+        },
+        "startMs": 5629,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "actionStartMs": 8134,
+        "input": [
+          {
+            "type": "pointerdown",
+            "withinTarget": true,
+            "atMs": 8989
+          },
+          {
+            "type": "input",
+            "withinTarget": true,
+            "atMs": 8997
+          }
+        ],
+        "actionEndMs": 9934,
+        "endMs": 9934
+      },
+      {
+        "kind": "observation",
+        "target": "#tasks li",
+        "anchor": ".task-card",
+        "read": "count",
+        "expected": 2,
+        "observed": 2,
+        "caption": "Done task hidden. Two left.",
+        "outcome": "fixed",
+        "pass": true,
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 341.796875
+        },
+        "startMs": 9937,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "observedAfterHold": 2,
+        "endMs": 14143
+      }
+    ],
+    "observations": [
+      {
+        "kind": "observation",
+        "target": "#tasks li",
+        "anchor": ".task-card",
+        "read": "count",
+        "expected": 2,
+        "observed": 2,
+        "caption": "Done task hidden. Two left.",
+        "outcome": "fixed",
+        "pass": true,
+        "bounds": {
+          "x": 260,
+          "y": 192,
+          "width": 760,
+          "height": 341.796875
+        },
+        "startMs": 9937,
+        "panel": {
+          "x": 24,
+          "y": 665,
+          "width": 740,
+          "height": 111
+        },
+        "captionFontPx": 28,
+        "captionFontFamily": "Arial, Helvetica, sans-serif",
+        "observedAfterHold": 2,
+        "endMs": 14143
+      }
+    ],
+    "finishedAt": "2026-11-05T10:50:02.633Z",
+    "durationMs": 15206,
+    "actionCount": 1,
+    "videoPath": "raw.webm",
+    "source": {
+      "kind": "declared-local-source",
+      "files": [
+        {
+          "path": "after.js",
+          "sha256": "13282b218453f38fb274a1d059d3713fc49b0c3da48775681e85f64c4fcc3cc4"
+        },
+        {
+          "path": "index.html",
+          "sha256": "411b37bc0c8f5b9d6e51887f46393cb8271df999c9919e501001df0082d7ff7e"
+        },
+        {
+          "path": "styles.css",
+          "sha256": "1f2955fcd1df6ffe4950ee5bb090178fb4807f89fcb35121a2a9b6ae79809900"
+        },
+        {
+          "path": "tasks.js",
+          "sha256": "2f35a65bdde47988cef7d1ff7548f9bd2269bfed5beb9efbaf683c5d8a37925b"
+        }
+      ],
+      "digest": "97595613b93ae733408021c79c1b1b41633fb3d4b3112f1f5e1bb7fa65daef2f",
+      "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
+      "git": null,
+      "stableDuringRecording": true
+    },
+    "scenario": {
+      "name": "scenario.mjs",
+      "sha256": "48a0af5bd509cb17ad28c4612d1efb0a88dcb30aa46e4464e1a163c322feb110"
+    },
+    "export": {
+      "file": "reel.mp4",
+      "poster": "poster.jpg",
+      "codec": "h264",
+      "width": 1280,
+      "height": 800,
+      "pixelFormat": "yuv420p",
+      "duration": 14.866667,
+      "bytes": 65036,
+      "sha256": "ae5baa9940c3b7bee36e7ae4e97f9b351d74ac3678b42da1db1ae51cb9e2107f"
+    },
+    "exportStatus": "complete"
+  }
+}
