@@ -9,13 +9,13 @@ Checked on 2026-11-05 on macOS (Apple Silicon), Node.js 24.8.0, Playwright 1.64.
 | `demo` | 44 s; film 17.5 s, 1280 × 800, 30 fps, H.264, 4.3 MB |
 | `record --base main --serve` on a real Git checkout | Base served from a temporary worktree, head from the working tree; worktree removed afterwards; receipts carry both commits (part of the suite) |
 | `publish --pr` | Comment body and `gh pr comment --attach film.mp4` arguments checked against a stand-in `gh`; an older `gh` is refused with the manual fallback named. Not posted to a live pull request |
-| Showcase in `docs/` | Rebuilt from an inspected recording; all three MP4s load and seek in Chromium through the preview server |
+| Showcase in `docs/` | Rebuilt from an inspected recording; all three MP4s load and seek in Chromium through the preview server. GIF at 800 px, 20 fps, 2.3 MB |
 | Frames of the film | Opening, click, and both results read at 640 px |
 
 ## Not verified
 
 - Automatic skill selection inside Claude Code or Codex; the skill was exercised through its CLI.
-- Windows and Linux. The Linux CI workflow is configured but had not run at the time of writing.
+- Windows. The first Linux CI run failed in the Revideo render step: Chromium refuses its sandbox on Ubuntu 24.04 runners, so the render now launches with `--no-sandbox` on Linux only. The rerun had not finished when this was written.
 - A live `publish --pr`: GitHub CLI 2.99 or newer was not available on the machine used.
 - `--serve` with frameworks whose dev server writes into `node_modules` while two instances run. Sharing `node_modules` worked for the bundled static app; pass `--prepare` when in doubt.
 - Phone-width playback. The film is landscape with large captions, not a vertical cut.

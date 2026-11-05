@@ -36,7 +36,7 @@ const STORY = `export default {
   async run({ reel, side }) {
     await reel.step({ caption: 'Click “Place order”.', target: '#place-order', action: (button) => button.click() });
     await reel.observe({
-      target: '.confirmation-text', read: 'text',
+      target: '#confirmation', read: 'text',
       equals: side === 'before' ? 'Order placed. Charged $0.30000000000000004.' : 'Order placed. Charged $0.30.',
       caption: side === 'before' ? 'Charged $0.30000000000000004.' : 'Charged $0.30.',
       outcome: side === 'before' ? 'problem' : 'fixed',

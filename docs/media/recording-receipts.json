@@ -6,12 +6,12 @@
     "title": "Floating-point total at checkout",
     "goal": "Charge the customer the right amount.",
     "presentation": "clean",
-    "url": "http://127.0.0.1:57714/before/",
+    "url": "http://127.0.0.1:57904/before/",
     "viewport": {
       "width": 1280,
       "height": 800
     },
-    "startedAt": "2026-11-05T12:03:51.216Z",
+    "startedAt": "2026-11-05T12:11:57.987Z",
     "pacing": {
       "scale": 1,
       "milliseconds": {
@@ -25,7 +25,7 @@
     "events": [
       {
         "kind": "intro",
-        "startMs": 47,
+        "startMs": 137,
         "caption": "Charge the customer the right amount.",
         "panel": {
           "x": 270,
@@ -35,11 +35,11 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 3054
+        "endMs": 3149
       },
       {
         "kind": "step",
-        "caption": "Two items. Ten cents and twenty cents.",
+        "caption": "In the cart: $0.10 + $0.20.",
         "target": ".order-card",
         "bounds": {
           "x": 260,
@@ -47,7 +47,7 @@
           "width": 760,
           "height": 294.984375
         },
-        "startMs": 3058,
+        "startMs": 3156,
         "panel": {
           "x": 24,
           "y": 665,
@@ -56,7 +56,7 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 5562
+        "endMs": 5659
       },
       {
         "kind": "step",
@@ -68,7 +68,7 @@
           "width": 107.28125,
           "height": 36
         },
-        "startMs": 5565,
+        "startMs": 5664,
         "panel": {
           "x": 24,
           "y": 24,
@@ -77,20 +77,20 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "actionStartMs": 8070,
+        "actionStartMs": 8172,
         "input": [
           {
             "type": "pointerdown",
             "withinTarget": true,
-            "atMs": 8930
+            "atMs": 9043
           }
         ],
-        "actionEndMs": 9836,
-        "endMs": 9836
+        "actionEndMs": 9969,
+        "endMs": 9969
       },
       {
         "kind": "observation",
-        "target": ".confirmation-text",
+        "target": "#confirmation",
         "read": "text",
         "expected": "Order placed. Charged $0.30000000000000004.",
         "observed": "Order placed. Charged $0.30000000000000004.",
@@ -98,12 +98,12 @@
         "outcome": "problem",
         "pass": true,
         "bounds": {
-          "x": 317,
-          "y": 481.984375,
-          "width": 352.140625,
-          "height": 18
+          "x": 261,
+          "y": 461.984375,
+          "width": 758,
+          "height": 57
         },
-        "startMs": 9846,
+        "startMs": 10000,
         "panel": {
           "x": 24,
           "y": 24,
@@ -113,13 +113,13 @@
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
         "observedAfterHold": "Order placed. Charged $0.30000000000000004.",
-        "endMs": 14059
+        "endMs": 14214
       }
     ],
     "observations": [
       {
         "kind": "observation",
-        "target": ".confirmation-text",
+        "target": "#confirmation",
         "read": "text",
         "expected": "Order placed. Charged $0.30000000000000004.",
         "observed": "Order placed. Charged $0.30000000000000004.",
@@ -127,12 +127,12 @@
         "outcome": "problem",
         "pass": true,
         "bounds": {
-          "x": 317,
-          "y": 481.984375,
-          "width": 352.140625,
-          "height": 18
+          "x": 261,
+          "y": 461.984375,
+          "width": 758,
+          "height": 57
         },
-        "startMs": 9846,
+        "startMs": 10000,
         "panel": {
           "x": 24,
           "y": 24,
@@ -142,11 +142,11 @@
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
         "observedAfterHold": "Order placed. Charged $0.30000000000000004.",
-        "endMs": 14059
+        "endMs": 14214
       }
     ],
-    "finishedAt": "2026-11-05T12:04:05.986Z",
-    "durationMs": 14695,
+    "finishedAt": "2026-11-05T12:12:12.859Z",
+    "durationMs": 14796,
     "actionCount": 1,
     "videoPath": "raw.webm",
     "source": {
@@ -172,15 +172,15 @@
       "digest": "6f1e8c376329669315bdcd565ac2e585d2d331c98a7fe18c0d929bfb2637f791",
       "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
       "git": {
-        "commit": "f4df2d41f26b74ef5083069812c491817736543c",
-        "dirty": false,
-        "trackedDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "commit": "b1963511a053381d16daf9006968519f1ef026d1",
+        "dirty": true,
+        "trackedDiffSha256": "62e9311a32df655f31feb21056a0859ce2ed1fa72d99ca4a77ee962f4a726f29"
       },
       "stableDuringRecording": true
     },
     "scenario": {
       "name": "scenario.mjs",
-      "sha256": "f6d6a9042d212aee24c72e0034f9cdd59f004a469a423b6943a074cced5b712e"
+      "sha256": "f4767526d023ad71193cab015426c63502e855488fd061cfd6a9704c6ed038cb"
     },
     "export": {
       "file": "reel.mp4",
@@ -189,9 +189,9 @@
       "width": 1280,
       "height": 800,
       "pixelFormat": "yuv420p",
-      "duration": 14.8,
-      "bytes": 48388,
-      "sha256": "c81eddc4e1402fe921ca3746a053f685c1522408ef4ff4112080a864adbafed5"
+      "duration": 14.933333,
+      "bytes": 48683,
+      "sha256": "50b50f9c48f1eb9da74837dff0e4c85d09d1d6d004ce9e64524b30d405068784"
     },
     "exportStatus": "complete"
   },
@@ -202,12 +202,12 @@
     "title": "Floating-point total at checkout",
     "goal": "Charge the customer the right amount.",
     "presentation": "clean",
-    "url": "http://127.0.0.1:57714/after/",
+    "url": "http://127.0.0.1:57904/after/",
     "viewport": {
       "width": 1280,
       "height": 800
     },
-    "startedAt": "2026-11-05T12:04:06.492Z",
+    "startedAt": "2026-11-05T12:12:13.379Z",
     "pacing": {
       "scale": 1,
       "milliseconds": {
@@ -221,7 +221,7 @@
     "events": [
       {
         "kind": "intro",
-        "startMs": 45,
+        "startMs": 46,
         "caption": "Charge the customer the right amount.",
         "panel": {
           "x": 270,
@@ -231,11 +231,11 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "endMs": 3052
+        "endMs": 3053
       },
       {
         "kind": "step",
-        "caption": "Two items. Ten cents and twenty cents.",
+        "caption": "In the cart: $0.10 + $0.20.",
         "target": ".order-card",
         "bounds": {
           "x": 260,
@@ -243,7 +243,7 @@
           "width": 760,
           "height": 294.984375
         },
-        "startMs": 3055,
+        "startMs": 3056,
         "panel": {
           "x": 24,
           "y": 665,
@@ -264,7 +264,7 @@
           "width": 107.28125,
           "height": 36
         },
-        "startMs": 5563,
+        "startMs": 5562,
         "panel": {
           "x": 24,
           "y": 24,
@@ -273,20 +273,20 @@
         },
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
-        "actionStartMs": 8068,
+        "actionStartMs": 8070,
         "input": [
           {
             "type": "pointerdown",
             "withinTarget": true,
-            "atMs": 8911
+            "atMs": 8927
           }
         ],
-        "actionEndMs": 9818,
-        "endMs": 9818
+        "actionEndMs": 9833,
+        "endMs": 9833
       },
       {
         "kind": "observation",
-        "target": ".confirmation-text",
+        "target": "#confirmation",
         "read": "text",
         "expected": "Order placed. Charged $0.30.",
         "observed": "Order placed. Charged $0.30.",
@@ -294,12 +294,12 @@
         "outcome": "fixed",
         "pass": true,
         "bounds": {
-          "x": 317,
-          "y": 481.984375,
-          "width": 207.65625,
-          "height": 18
+          "x": 261,
+          "y": 461.984375,
+          "width": 758,
+          "height": 57
         },
-        "startMs": 9828,
+        "startMs": 9857,
         "panel": {
           "x": 24,
           "y": 24,
@@ -309,13 +309,13 @@
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
         "observedAfterHold": "Order placed. Charged $0.30.",
-        "endMs": 14034
+        "endMs": 14066
       }
     ],
     "observations": [
       {
         "kind": "observation",
-        "target": ".confirmation-text",
+        "target": "#confirmation",
         "read": "text",
         "expected": "Order placed. Charged $0.30.",
         "observed": "Order placed. Charged $0.30.",
@@ -323,12 +323,12 @@
         "outcome": "fixed",
         "pass": true,
         "bounds": {
-          "x": 317,
-          "y": 481.984375,
-          "width": 207.65625,
-          "height": 18
+          "x": 261,
+          "y": 461.984375,
+          "width": 758,
+          "height": 57
         },
-        "startMs": 9828,
+        "startMs": 9857,
         "panel": {
           "x": 24,
           "y": 24,
@@ -338,11 +338,11 @@
         "captionFontPx": 28,
         "captionFontFamily": "Arial, Helvetica, sans-serif",
         "observedAfterHold": "Order placed. Charged $0.30.",
-        "endMs": 14034
+        "endMs": 14066
       }
     ],
-    "finishedAt": "2026-11-05T12:04:21.193Z",
-    "durationMs": 14630,
+    "finishedAt": "2026-11-05T12:12:28.092Z",
+    "durationMs": 14640,
     "actionCount": 1,
     "videoPath": "raw.webm",
     "source": {
@@ -368,15 +368,15 @@
       "digest": "dfd1e905728059b1af1fae092e3f6dc0e4db12fdf86da76c5ce8ceed6779d557",
       "note": "Files were hashed locally. Their association with the served URL is declared by the scenario.",
       "git": {
-        "commit": "f4df2d41f26b74ef5083069812c491817736543c",
-        "dirty": false,
-        "trackedDiffSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        "commit": "b1963511a053381d16daf9006968519f1ef026d1",
+        "dirty": true,
+        "trackedDiffSha256": "62e9311a32df655f31feb21056a0859ce2ed1fa72d99ca4a77ee962f4a726f29"
       },
       "stableDuringRecording": true
     },
     "scenario": {
       "name": "scenario.mjs",
-      "sha256": "f6d6a9042d212aee24c72e0034f9cdd59f004a469a423b6943a074cced5b712e"
+      "sha256": "f4767526d023ad71193cab015426c63502e855488fd061cfd6a9704c6ed038cb"
     },
     "export": {
       "file": "reel.mp4",
@@ -385,9 +385,9 @@
       "width": 1280,
       "height": 800,
       "pixelFormat": "yuv420p",
-      "duration": 14.766667,
-      "bytes": 46677,
-      "sha256": "f605a427d1187fff828c66b7cd9765bab96f679025d527ec3099a0bcbc47a209"
+      "duration": 14.8,
+      "bytes": 46871,
+      "sha256": "67584da5b9cd8f78683037b054d31d01a2daff0aedd3916e99ec736b42907fad"
     },
     "exportStatus": "complete"
   }

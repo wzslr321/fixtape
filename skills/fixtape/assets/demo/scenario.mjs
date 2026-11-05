@@ -12,7 +12,7 @@ export function createScenario(baseUrl) {
     after: { url: new URL('/after/', baseUrl).href, label: 'After', source: source('after.js') },
     async run({ reel, side }) {
       await reel.step({
-        caption: 'Two items. Ten cents and twenty cents.',
+        caption: 'In the cart: $0.10 + $0.20.',
         target: '.order-card',
       });
       await reel.step({
@@ -21,7 +21,7 @@ export function createScenario(baseUrl) {
         action: (button) => button.click(),
       });
       await reel.observe({
-        target: '.confirmation-text',
+        target: '#confirmation',
         read: 'text',
         equals: side === 'before' ? 'Order placed. Charged $0.30000000000000004.' : 'Order placed. Charged $0.30.',
         caption: side === 'before'

@@ -19,7 +19,11 @@ await renderVideo({
   settings: {
     outFile: 'rendered.mp4', outDir: './rendered', workers: 1, logProgress: false,
     ffmpeg: { ffmpegPath: 'ffmpeg', ffprobePath: 'ffprobe' },
-    puppeteer: { executablePath: chromium.executablePath() },
+    puppeteer: {
+      executablePath: chromium.executablePath(),
+      // Ubuntu 24.04 and CI runners restrict user namespaces; the render only loads this project's own scene.
+      args: process.platform === 'linux' ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+    },
     viteConfig: {
       root: process.cwd(), publicDir: './public', resolve: { alias: aliases },
       esbuild: { jsx: 'automatic', jsxImportSource: '@revideo/2d' },

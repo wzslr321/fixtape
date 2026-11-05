@@ -10,30 +10,30 @@
     "width": 1280,
     "height": 800,
     "pixelFormat": "yuv420p",
-    "duration": 17.5,
-    "bytes": 4333673,
-    "bitrate": 1977943,
+    "duration": 17.566016,
+    "bytes": 4350398,
+    "bitrate": 1978032,
     "frameRate": "30/1",
     "sampleAspectRatio": "1:1",
-    "sha256": "923749e34f154139d52bf4630f8bcfa3844ccf50d31d45ce8db1b9bf393c266f"
+    "sha256": "13a5a7df9ca0c35e97ec52234f4abbc6b6b3bba10160e6bbf541e5664ff9af42"
   },
   "sources": {
     "before": {
       "file": "before/reel.mp4",
-      "sha256": "c81eddc4e1402fe921ca3746a053f685c1522408ef4ff4112080a864adbafed5",
-      "receiptSha256": "eb9080bb46c29687ca2d8ef91d4e2ead0f9702da98bca8b09a3639042a5d5049",
+      "sha256": "50b50f9c48f1eb9da74837dff0e4c85d09d1d6d004ce9e64524b30d405068784",
+      "receiptSha256": "51d70ccd4987837dbdf8a0bba5c0a233966e09b1ac6277ca4e6d0563aff8bb95",
       "sourceIntervalSeconds": {
-        "start": 3.058,
-        "end": 14.059
+        "start": 3.156,
+        "end": 14.214
       }
     },
     "after": {
       "file": "after/reel.mp4",
-      "sha256": "f605a427d1187fff828c66b7cd9765bab96f679025d527ec3099a0bcbc47a209",
-      "receiptSha256": "c59e8386aeec0ccc60ffa5da77c425d4e948a818c36a7d82939bb579023aad05",
+      "sha256": "67584da5b9cd8f78683037b054d31d01a2daff0aedd3916e99ec736b42907fad",
+      "receiptSha256": "76b66557863791441b7078b0e514657d694b9f97ba1cf562406fbdd4b5a68e77",
       "sourceIntervalSeconds": {
-        "start": 7.811,
-        "end": 14.034
+        "start": 7.827,
+        "end": 14.066
       }
     }
   },
@@ -45,13 +45,13 @@
     "sides": [
       {
         "side": "before",
-        "start": 3.058,
-        "end": 14.059,
-        "duration": 11.001,
+        "start": 3.156,
+        "end": 14.214,
+        "duration": 11.058,
         "cues": [
           {
             "kind": "step",
-            "caption": "Two items. Ten cents and twenty cents.",
+            "caption": "In the cart: $0.10 + $0.20.",
             "at": 0,
             "focus": {
               "x": 0,
@@ -70,7 +70,7 @@
           {
             "kind": "step",
             "caption": "Click “Place order”.",
-            "at": 2.5070000000000006,
+            "at": 2.5079999999999996,
             "focus": {
               "x": 301.359375,
               "y": 29.984375,
@@ -88,43 +88,43 @@
           {
             "kind": "observation",
             "caption": "Charged $0.30000000000000004.",
-            "at": 6.788,
+            "at": 6.843999999999999,
             "focus": {
-              "x": 16,
-              "y": 55.984375,
-              "width": 702,
-              "height": 112
+              "x": 0,
+              "y": 65.484375,
+              "width": 782,
+              "height": 131
             },
             "camera": {
-              "scale": 1.6809116809116809,
+              "scale": 1.5089514066496164,
               "position": [
-                -26.894586894586894,
-                -94.10478988603988
+                0,
+                -98.81273976982096
               ]
             }
           }
         ],
         "inputs": [
-          5.872
+          5.886999999999999
         ],
         "actions": [
           {
             "target": "#place-order",
             "caption": "Click “Place order”.",
-            "start": 5.0120000000000005,
-            "end": 6.7780000000000005,
+            "start": 5.016,
+            "end": 6.812999999999999,
             "inputTimes": [
-              5.872
+              5.886999999999999
             ]
           }
         ],
-        "terminalAt": 6.788
+        "terminalAt": 6.843999999999999
       },
       {
         "side": "after",
-        "start": 7.811,
-        "end": 14.034,
-        "duration": 6.223000000000001,
+        "start": 7.827,
+        "end": 14.066,
+        "duration": 6.239000000000001,
         "cues": [
           {
             "kind": "step",
@@ -147,18 +147,18 @@
           {
             "kind": "observation",
             "caption": "Charged $0.30.",
-            "at": 2.0169999999999995,
+            "at": 2.0299999999999994,
             "focus": {
-              "x": 16,
-              "y": 55.984375,
-              "width": 702,
-              "height": 112
+              "x": 0,
+              "y": 65.484375,
+              "width": 782,
+              "height": 131
             },
             "camera": {
-              "scale": 1.6809116809116809,
+              "scale": 1.5089514066496164,
               "position": [
-                -26.894586894586894,
-                -94.10478988603988
+                0,
+                -98.81273976982096
               ]
             }
           }
@@ -170,14 +170,14 @@
           {
             "target": "#place-order",
             "caption": "Click “Place order”.",
-            "start": 0.2569999999999997,
-            "end": 2.0069999999999997,
+            "start": 0.24300000000000033,
+            "end": 2.0060000000000002,
             "inputTimes": [
               1.0999999999999996
             ]
           }
         ],
-        "terminalAt": 2.0169999999999995
+        "terminalAt": 2.0299999999999994
       }
     ]
   },

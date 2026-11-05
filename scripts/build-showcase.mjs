@@ -42,7 +42,7 @@ for (const side of ['before', 'after']) {
 }
 await exec('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y',
   '-i', path.join(destination, 'film.mp4'),
-  '-filter_complex', '[0:v]fps=12,scale=640:-1:flags=lanczos,split[s][p];[p]palettegen=stats_mode=diff:reserve_transparent=0[palette];[s][palette]paletteuse=dither=bayer:bayer_scale=3',
+  '-filter_complex', '[0:v]fps=20,scale=800:-1:flags=lanczos,split[s][p];[p]palettegen=stats_mode=diff:reserve_transparent=0[palette];[s][palette]paletteuse=dither=none',
   '-loop', '0', path.join(destination, 'preview.gif'),
 ]);
 await writeFile(path.join(destination, 'recording-receipts.json'), JSON.stringify(receipts, null, 2) + '\n');

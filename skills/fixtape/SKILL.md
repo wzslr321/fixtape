@@ -1,6 +1,6 @@
 ---
 name: fixtape
-description: Film a web bug and its fix as one 20-second before/after MP4 with real clicks, asserted results and source hashes, ready to post on a pull request. Use when a reviewer, teammate or PM should see what changed instead of reading the diff.
+description: Film a web bug and its fix as one short before/after MP4 with real clicks, asserted results and source hashes, to post on a pull request or share anywhere. Use when a reviewer, teammate or PM should see what changed instead of reading the diff.
 ---
 
 # fixtape

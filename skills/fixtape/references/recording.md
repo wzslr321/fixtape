@@ -15,7 +15,7 @@ export default {
       action: async (button) => { await button.click(); },
     });
     await reel.observe({
-      target: '.confirmation-text',
+      target: '#confirmation',
       read: 'text',
       equals: side === 'before'
         ? 'Order placed. Charged $0.30000000000000004.'
