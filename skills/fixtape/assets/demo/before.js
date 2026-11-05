@@ -1,6 +1,7 @@
-import { tasks, renderTasks } from '/tasks.js';
+import { order, renderOrder, placeOrder } from '/order.js';
 
-renderTasks(tasks);
-document.querySelector('#hide-completed').addEventListener('change', () => {
-  renderTasks(tasks);
+renderOrder(order);
+document.querySelector('#place-order').addEventListener('click', () => {
+  const total = order.items.reduce((sum, item) => sum + item.price, 0);
+  placeOrder(`$${total}`);
 });

@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tasks</title>
+    <title>Checkout</title>
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="/styles.css">
     <script type="module" src="./app.js"></script>
   </head>
   <body>
     <main>
-      <p class="breadcrumb">Workspace <span aria-hidden="true">/</span> Web app</p>
-      <section class="task-card" aria-labelledby="list-title">
+      <p class="breadcrumb">Store <span aria-hidden="true">/</span> Checkout</p>
+      <section class="order-card" aria-labelledby="order-title">
         <div class="card-header">
           <div>
-            <h1 id="list-title">Tasks</h1>
-            <p class="card-description">This week</p>
+            <h1 id="order-title">Checkout</h1>
+            <p class="card-description">Order #1042</p>
           </div>
-          <span id="task-count" class="task-count" aria-live="polite">3 tasks</span>
+          <span id="item-count" class="item-count">2 items</span>
         </div>
-        <div class="filter-bar">
-          <span class="list-label">Assigned to me</span>
-          <label class="filter" for="hide-completed">
-            <input id="hide-completed" type="checkbox">
-            <span>Hide completed</span>
-          </label>
+        <ul id="items" aria-label="Items in this order"></ul>
+        <div class="checkout-bar">
+          <span class="payment">Visa ending 4242</span>
+          <button id="place-order" type="button">Place order</button>
         </div>
-        <div class="column-headings" aria-hidden="true"><span>Task</span><span>Status</span></div>
-        <ul id="tasks" aria-label="Tasks for this week" aria-live="polite"></ul>
+        <div id="confirmation" class="confirmation" hidden>
+          <span class="confirmation-mark" aria-hidden="true"></span>
+          <p class="confirmation-text">Order placed. Charged <strong id="charged"></strong>.</p>
+        </div>
       </section>
     </main>
   </body>

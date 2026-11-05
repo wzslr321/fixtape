@@ -1,7 +1,7 @@
-import { tasks, renderTasks } from '/tasks.js';
+import { order, renderOrder, placeOrder } from '/order.js';
 
-renderTasks(tasks);
-document.querySelector('#hide-completed').addEventListener('change', (event) => {
-  const visibleTasks = event.target.checked ? tasks.filter((task) => !task.done) : tasks;
-  renderTasks(visibleTasks);
+renderOrder(order);
+document.querySelector('#place-order').addEventListener('click', () => {
+  const cents = order.items.reduce((sum, item) => sum + Math.round(item.price * 100), 0);
+  placeOrder(`$${(cents / 100).toFixed(2)}`);
 });

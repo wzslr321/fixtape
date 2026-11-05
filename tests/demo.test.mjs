@@ -22,7 +22,7 @@ test('demo serves fixed assets and refuses unrelated paths', async (t) => {
   await assert.rejects(startDemo({ host: '0.0.0.0' }), /loopback/);
 });
 
-test('completed task remains before, disappears after, and returns when the filter is cleared', async (t) => {
+test('placing the order charges a floating-point total before and the exact cents after', async (t) => {
   const demo = await startDemo();
   t.after(() => demo.close());
   const browser = await chromium.launch({ headless: true });
@@ -32,19 +32,12 @@ test('completed task remains before, disappears after, and returns when the filt
 
   for (const side of ['before', 'after']) {
     await page.goto(scenario[side].url);
-    await page.locator('#tasks li').first().waitFor();
-    assert.equal(await page.locator('#tasks li').count(), 3);
-    assert.equal(await page.locator('#tasks li.completed').count(), 1);
-    await page.locator('#hide-completed').check();
-    assert.equal(await page.locator('#hide-completed').isChecked(), true);
-    assert.equal(await page.locator('#tasks li').count(), side === 'before' ? 3 : 2);
-    assert.equal(await page.locator('#tasks li.completed').count(), side === 'before' ? 1 : 0);
-    assert.deepEqual(await page.locator('#tasks li:not(.completed) .task-title').allTextContents(), [
-      'Keep keyboard focus in the dialog',
-      'Remember the selected theme',
-    ]);
-    await page.locator('#hide-completed').uncheck();
-    assert.equal(await page.locator('#tasks li').count(), 3);
-    assert.equal(await page.locator('#tasks li.completed').count(), 1);
+    await page.locator('#items li').first().waitFor();
+    assert.deepEqual(await page.locator('#items .item-price').allTextContents(), ['$0.10', '$0.20']);
+    assert.equal(await page.locator('#confirmation').isVisible(), false);
+    await page.locator('#place-order').click();
+    assert.equal(await page.locator('#confirmation').isVisible(), true);
+    assert.equal(await page.locator('#charged').innerText(), side === 'before' ? '$0.30000000000000004' : '$0.30');
+    assert.equal(await page.locator('#place-order').isDisabled(), true);
   }
 });

@@ -1,57 +1,77 @@
 # Author a recording scenario
 
-Save an ES module with a default-exported scenario. Both URLs must be running before recording begins. Each side opens in a fresh Chromium context at 1280 × 800, so establish any required test state explicitly.
+Save an ES module with a default-exported scenario. Each side opens in a fresh Chromium context at 1280 × 800, so establish any required test state explicitly.
 
 ```js
 export default {
-  title: 'Hide completed tasks',
-  goal: 'Keep only unfinished tasks in view.',
-  before: { url: 'http://127.0.0.1:3000/before/' },
-  after: { url: 'http://127.0.0.1:3000/after/' },
+  title: 'Floating-point total at checkout',
+  goal: 'Charge the customer the right amount.',
+  path: '/checkout',
 
   async run({ page, reel, side }) {
     await reel.step({
-      caption: 'Select “Hide completed”.',
-      target: '#hide-completed',
-      action: async (checkbox) => { await checkbox.check(); },
+      caption: 'Click “Place order”.',
+      target: '#place-order',
+      action: async (button) => { await button.click(); },
     });
     await reel.observe({
-      target: '#tasks li',
-      anchor: '#tasks',
-      read: 'count',
-      equals: side === 'before' ? 3 : 2,
-      caption: side === 'before'
-        ? 'The completed task stays visible. All 3 tasks remain.'
-        : 'Only the 2 unfinished tasks remain.',
+      target: '.confirmation-text',
+      read: 'text',
+      equals: side === 'before'
+        ? 'Order placed. Charged $0.30000000000000004.'
+        : 'Order placed. Charged $0.30.',
+      caption: side === 'before' ? 'Charged $0.30000000000000004.' : 'Charged $0.30.',
       outcome: side === 'before' ? 'problem' : 'fixed',
     });
   },
 };
 ```
 
-The example assumes three rendered rows, one completed, and a filter that removes the completed row after the fix. Adapt the selectors and expectations to the actual application. Keep the same interaction on both sides.
+Adapt the selectors and expectations to the actual application. Keep the same interaction on both sides.
 
 ## Run it
 
-Replace `<skill-directory>` with the directory containing `SKILL.md`:
+Replace `<skill-directory>` with the directory containing `SKILL.md`. Choose one way to run both versions:
+
+**From one checkout.** fixtape checks out `--base` in a temporary worktree, starts your app twice on free ports, records, and removes the worktree:
 
 ```sh
-node <skill-directory>/scripts/fixtape.mjs record /absolute/path/to/story.mjs --out /absolute/path/to/new-output
+node <skill-directory>/scripts/fixtape.mjs record /absolute/path/to/story.mjs --out /absolute/path/to/new-output \
+  --base main --serve "npm run dev -- --port {port}"
 ```
 
-Options: `--side both|before|after` (default `both`), `--headed`, and `--max-mb 10` (maximum size of each MP4, default 10 MB). The output directory must be new or empty. Setup and runtime resolve dependencies relative to the installed skill, not the application project. Setup reuses Playwright Chromium for recording and film rendering, with Puppeteer's separate browser download disabled.
+`{port}` is replaced in the command and `PORT` is set in its environment. `path` in the scenario is the page to open on both servers (default `/`). `--cwd <dir>` names the checkout when it is not the current directory. Without `--prepare`, the base checkout shares the head's `node_modules` when the lockfile (or `package.json` without one) is unchanged; otherwise pass `--prepare "npm ci"` or your own install command. `--ready-timeout 120` waits longer for slow servers. Server output lands in `logs/` inside the output directory.
+
+**From two URLs you serve yourself.** Put `before.url` and `after.url` in the scenario instead of `path` and omit `--serve`:
+
+```js
+before: { url: 'http://127.0.0.1:3000/checkout' },
+after: { url: 'http://127.0.0.1:3001/checkout' },
+```
+
+Options for both: `--side both|before|after` (default `both`), `--headed`, `--max-mb 10` (maximum size of each MP4). The output directory must be new or empty. Setup and runtime resolve dependencies relative to the installed skill, not the application project.
 
 ## One sequential film
 
 Paired recording captures clean footage and creates `film.mp4`, `film.jpg` and `film.json`. The 1280 × 800 film presents before, then after, with one interface on screen, camera focus and captions. Aim for about 20 seconds; the renderer rejects films over 25 seconds. Each retained source sequence is continuous and plays at its original speed. Only lead-ins are shortened.
 
-To render an existing clean pair:
+To render an existing clean pair again:
 
 ```sh
 node <skill-directory>/scripts/fixtape.mjs compose /absolute/path/to/output
 ```
 
-The composer checks source MP4 hashes and recording receipts before rendering. It refuses existing film files. Annotated clips from single-side recording are retained as standalone evidence and are not inputs to the film renderer. The film receipt records source intervals and hashes; its timestamps are approximate, so inspect the actual export. The edit does not measure application performance.
+The composer checks source MP4 hashes and recording receipts before rendering and refuses to overwrite existing film files. Annotated clips from single-side recording are standalone evidence, not film inputs. The film receipt records source intervals and hashes; its timestamps are approximate, so inspect the actual export. The edit does not measure application performance.
+
+## Post it on the pull request
+
+Only on the user's word. Needs GitHub CLI 2.99 or newer, signed in, run inside the repository (or pass `--repo owner/name`):
+
+```sh
+node <skill-directory>/scripts/fixtape.mjs publish /absolute/path/to/output --pr 123
+```
+
+This comments on the pull request with the title, goal, both observed results and `film.mp4` attached, then writes `publish.json` with the comment URL. `--pr 123` on `record` does the same right after a successful film. Without `gh`, the user can drag `film.mp4` into the comment box.
 
 ## Scenario fields
 
@@ -59,7 +79,8 @@ The composer checks source MP4 hashes and recording receipts before rendering. I
 | --- | --- |
 | `title` | Nonempty text, at most 100 characters. |
 | `goal` | Nonempty text, at most 180 characters. |
-| `before`, `after` | Each has an HTTP(S) `url`; optional `label` adds up to 60 characters of context. |
+| `path` | With `--serve`: the page to open, starting with `/`. Default `/`. |
+| `before`, `after` | Without `--serve`: each has an HTTP(S) `url`. Optional `label` adds up to 60 characters of context. |
 | `source` | Optional declaration on each side, described below. |
 | `run({ page, reel, side })` | Async workflow; `page` is a Playwright Page and `side` is `before` or `after`. |
 
@@ -69,7 +90,7 @@ Await each reel operation sequentially. Every recording needs at least one real 
 
 `target` is a CSS selector matching exactly one visible, unobscured main-document HTML element. Its bounds and `caption` guide the film's camera and annotations. A standalone annotated recording displays them before calling `action(locator)`. The locator identifies the target. Use real Playwright input such as `click()`, `check()`, `fill()`, or `press()` within that element. An action with no real input, or input outside the focused target, fails.
 
-Omit `action` for a short orientation scene. Captions may use any language and must be nonempty, at most 180 characters. Keep the target inside the viewport with room around it; clipped, covered, or edge-adjacent targets fail. The caption must fit without covering the target.
+Omit `action` for a short orientation scene. Captions may use any language and must be nonempty, at most 180 characters; in the film they must fit two lines, so keep them short. Keep the target inside the viewport with room around it; clipped, covered, or edge-adjacent targets fail. The caption must fit without covering the target.
 
 ### `reel.observe({ target, read, equals, caption, outcome, anchor? })`
 
@@ -87,14 +108,14 @@ Wait for the application to settle before observing when needed, using a specifi
 
 ## Declare source files
 
-Each side can declare its local source:
+With `--serve`, each receipt records the Git commit it served (`checkout.commit`, plus `dirty` for the working tree). Without it, each side can declare its local source:
 
 ```js
 before: {
   url: 'http://127.0.0.1:3000/',
   source: {
     root: '/absolute/path/to/original-checkout',
-    files: ['src/tasks.js', 'src/index.html'],
+    files: ['src/checkout.js', 'src/index.html'],
   },
 },
 ```
@@ -107,4 +128,4 @@ Keep `film.mp4`, `film.jpg` and `film.json`, plus each side's `raw.webm`, `reel.
 
 Run `node <skill-directory>/scripts/fixtape.mjs preview <output-directory>` and open the printed loopback URL. The built-in server supports byte ranges, so the saved videos can be sought as well as played. Stop it with Ctrl+C after review.
 
-Play and seek the film and source clips. Verify that a viewer can identify the goal, real action, and final difference without extra narration. Check camera framing and caption placement at the intended playback size. Obtain an independent viewer's review, or report that check as unperformed if none is available. Check the receipts against the clips, and disclose missing source or environment evidence. The CLI does not upload the artifacts.
+Play and seek the film and source clips. Verify that a viewer can identify the goal, real action, and final difference without extra narration. Check camera framing and caption placement at the intended playback size. Check the receipts against the clips, and disclose missing source or environment evidence. Nothing leaves the machine until `publish`.

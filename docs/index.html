@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fixtape · The bug and the fix</title>
+<title>fixtape · The bug and the fix</title>
 <style>
   :root{color-scheme:light;font-family:system-ui,-apple-system,sans-serif;background:#fafafa;color:#18181b}
   *{box-sizing:border-box}body{margin:0;padding:52px 5vw}main{max-width:1280px;margin:auto}
@@ -16,9 +16,9 @@
   @media(max-width:850px){.grid{grid-template-columns:1fr}body{padding:32px 20px}}
 </style>
 <main>
-  <div class="brand">Fixtape</div>
+  <div class="brand">fixtape</div>
   <h1>Show the bug. Show the fix.</h1>
-  <p class="lead">One film follows the action before the fix, then repeats it after. The full recordings remain below.</p>
+  <p class="lead">Placing the order charges $0.30000000000000004 before the fix and $0.30 after it. One film, the same click on both versions. The full recordings are below.</p>
   <section class="film">
     <h2>The film</h2>
     <video aria-label="The bug and its fix" controls playsinline preload="metadata" poster="media/film.jpg" src="media/film.mp4"></video>
@@ -29,6 +29,6 @@
     <section><h2>Before</h2><video aria-label="Before the fix" controls preload="metadata" poster="media/before.jpg" src="media/before.mp4"></video><div class="links"><a href="media/before.mp4">Download MP4</a></div></section>
     <section><h2>After</h2><video aria-label="After the fix" controls preload="metadata" poster="media/after.jpg" src="media/after.mp4"></video><div class="links"><a href="media/after.mp4">Download MP4</a></div></section>
   </div>
-  <p class="foot">Recorded from the included sample application, with different before and after implementations. The recorder checks the action and visible result. <a href="media/recording-receipts.json">Recording receipts</a>.</p>
+  <p class="foot">Recorded from the bundled checkout app, whose before and after versions differ only in how the total is summed. The recorder clicks for real and checks the confirmation text on each side. <a href="media/recording-receipts.json">Recording receipts</a>.</p>
 </main>
 </html>

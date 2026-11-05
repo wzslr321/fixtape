@@ -8,7 +8,7 @@ const files = new Map([
   ['/before/app.js', ['before.js', 'text/javascript; charset=utf-8']],
   ['/after/app.js', ['after.js', 'text/javascript; charset=utf-8']],
   ['/styles.css', ['styles.css', 'text/css; charset=utf-8']],
-  ['/tasks.js', ['tasks.js', 'text/javascript; charset=utf-8']],
+  ['/order.js', ['order.js', 'text/javascript; charset=utf-8']],
 ]);
 
 export async function startDemo({ port = 0, host = '127.0.0.1' } = {}) {
@@ -52,7 +52,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     process.exitCode = 1;
   } else {
     const demo = await startDemo({ port: args.length ? Number(args[1]) : 3000 });
-    console.log(`Tasks demo: ${demo.url}/before/ and ${demo.url}/after/`);
+    console.log(`Checkout demo: ${demo.url}/before/ and ${demo.url}/after/`);
     for (const signal of ['SIGINT', 'SIGTERM']) {
       process.once(signal, async () => { await demo.close(); process.exit(0); });
     }
